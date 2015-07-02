@@ -1,29 +1,28 @@
 # storm-samples
-Small storm projects with different functionality
+Small storm project with different functionalities in its simplest form
 
-# requirements
-All services used required to be installed outside of this project, kafka, elasticsearch,...
+# Requirements
+To test all the cases you will need an external instances for:
+  - kafka
+  - elastic search
 
-# samples available
+# Samples available
 
 ## TestTopology 
 
-Read lines from a file and adds "Bolted" to the text and prints it out to log file.
-execute it as :
+Simple topology to read lines from a file and add "Bolted" to the text of every line and output final result to log file.
 
 mvn exec:java -Dexec.mainClass="topology.TestTopology" -Dexec.args="src/main/resources/test.txt"
 
 ## TestKafkaTopology
 
-Subscribe to "test" topic in kafka and prints the message to the log file.
-execute it as :
+Simple topology to subcribe to topic in kafka and output every message received to the log file.
 
 mvn exec:java -Dexec.mainClass="topology.TestKafkaTopology" 
 
 ## TestElasticSearchTopology
 
-Read lines from a file (expects json in every line) and adds that json to "test/bolt" index in elasticsearch.
-execute it as :
+Simple topology to read lines from a file representing a json object and add those json object to an index in elasticsearch
 
 mvn exec:java -Dexec.mainClass="topology.TestElasticSearchTopology" -Dexec.args="src/main/resources/json.txt" 
 
