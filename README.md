@@ -26,4 +26,9 @@ Simple topology to read lines from a file representing a json object and add tho
 
 mvn exec:java -Dexec.mainClass="topology.TestElasticSearchTopology" -Dexec.args="src/main/resources/json.txt" 
 
+## TestJDBCTopology
+
+Simple topology to read records from a database and output every message received to the log file.
+
+mvn exec:java -Dexec.mainClass="topology.TestJDBCTopology" 
  
