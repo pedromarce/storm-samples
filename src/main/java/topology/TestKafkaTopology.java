@@ -28,7 +28,6 @@ public class TestKafkaTopology {
 		builder.setBolt("bolted", new TestSimpleBolt()).shuffleGrouping("test");
 		builder.setBolt("Output", new TestWriteOutputBolt()).shuffleGrouping("bolted");
 		Config conf = new Config();
-		conf.put("fileName", args[0]);
 		conf.setDebug(true);
 		
 		LocalCluster cluster = new LocalCluster();
