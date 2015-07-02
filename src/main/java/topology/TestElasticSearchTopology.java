@@ -13,11 +13,11 @@ public class TestElasticSearchTopology {
 
 		Config esConf = new Config();
 		esConf.put("es.input.json", "true");
-		esConf.put("es.nodes", "rhbilling01");
+		esConf.put("es.nodes", "localhost");
 		
 		TopologyBuilder builder = new TopologyBuilder();
 		builder.setSpout("test", new TestReadFileSpout());
-		builder.setBolt("es-bolt", new EsBolt("test/bolt", esConf)).shuffleGrouping("test");
+		builder.setBolt("es-bolt", new EsBolt("test/bolt", esConf)).shuffleGrouping("test").setMaxTaskParallelism(2);
 		Config conf = new Config();
 		conf.put("fileName", args[0]);
 		conf.setDebug(true);
